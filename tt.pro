@@ -14,5 +14,5 @@ QML_IMPORT_PATH = $$PWD
 
 include(../quickflux/quickflux.pri)
 
-DISTFILES += \
-    README.md
+#DISTFILES += \
+#    README.md

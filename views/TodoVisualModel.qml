@@ -20,7 +20,12 @@ VisualDataModel {
         id:item
         uid: model.uid
         title: model.title
-        checked: model.done
+        property bool done: model.done
+
+        onDoneChanged: {
+            checked = model.done;
+//            console.log("OnDoneChanged....");
+        }
 
         Component.onCompleted: {
             item.VisualDataModel.inNonCompleted = Qt.binding(function() { return !model.done})

@@ -1,6 +1,7 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.0
+import QtQuick 2.4
+import QtQuick.Layouts 1.1
+import Material 0.1
+
 import "../actions"
 
 Rectangle {
@@ -17,13 +18,18 @@ Rectangle {
 
         CheckBox {
             id: checkBox
+//            text: title
             anchors.verticalCenter: parent.verticalCenter
         }
-
         Text {
             text: title
-            Layout.fillWidth: true
+            MouseArea {
+                anchors.fill: parent
+                onClicked: checkBox.checked = !checkBox.checked;
+            }
         }
+
+
     }
 
     onCheckedChanged: {

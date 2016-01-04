@@ -1,14 +1,18 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.0
+import QtQuick 2.4
+import QtQuick.Layouts 1.1
+import Material 0.1
+
 import "../actions"
 
 Item {
     height: 56
 
     function add() {
-        AppActions.add(textField.text);
-        textField.text = "";
+        if ( textField.text.length > 0 )
+        {
+            AppActions.add(textField.text);
+            textField.text = "";
+        }
     }
     function allDone() {
         AppActions.allDone();
@@ -20,6 +24,8 @@ Item {
 
         TextField {
             id: textField
+            placeholderText: "New Todo here"
+//            floatingLabel: true
             Layout.fillWidth: true
             focus: true
             onAccepted: add();
